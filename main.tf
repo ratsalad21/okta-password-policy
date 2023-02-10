@@ -11,8 +11,9 @@ resource "okta_policy_password" "test-policy" {
 }
 
 resource "okta_policy_rule_password" "test-default" {
-  name = "Default"
-  status = "ACTIVE"
+  policy_id          = okta_policy_password.test-policy.id
+  name               = "Default"
+  status             = "ACTIVE"
   network_connection = "ANYWHERE"
 }
 
