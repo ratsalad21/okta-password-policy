@@ -10,5 +10,11 @@ resource "okta_policy_password" "test-policy" {
   groups_included        = [data.okta_group.everyone.id]
 }
 
+resource "okta_policy_rule_password" "test-default" {
+  name = "Default"
+  status = "ACTIVE"
+  network_connection = "ANYWHERE"
+}
+
 
 
