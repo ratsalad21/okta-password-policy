@@ -17,7 +17,7 @@ resource "okta_group_rule" "test3-rule" {
   name              = "example"
   status            = "ACTIVE"
   group_assignments = [
-    "<group id>"]
+    "${okta_group.test2.id}"]
   expression_type   = "urn:okta:expression:1.0"
   expression_value  = "isMemberOfGroup("okta_group.test1.id")"
 }
