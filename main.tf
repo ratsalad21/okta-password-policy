@@ -1,4 +1,4 @@
-resource "okta_policy_password" "test policy" {
+resource "okta_policy_password" "test-policy" {
   name                   = "Test Policy"
   status                 = "ACTIVE"
   description            = "Example"
