@@ -13,6 +13,14 @@ resource "okta_group" "test3" {
   description = "This is test group 3"
 }
 
+resource "okta_group_rule" "test1-rule" {
+  name              = "Test1 Rule"
+  status            = "ACTIVE"
+  group_assignments = [okta_group.test1.id]
+  expression_type   = "urn:okta:expression:1.0"
+  expression_value  = "String.startsWith(user.lastName,\"Everhart\")"
+}
+
 resource "okta_group_rule" "test3-rule" {
   name              = "Test3 Rule"
   status            = "ACTIVE"
