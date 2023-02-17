@@ -2,10 +2,6 @@ data "okta_group" "everyone" {
   name = "Everyone"
 }
 
-locals {
-  dev = "${var.env == "dev" ? []}"
-}
-
 resource "okta_policy_password" "test-policy" {
   name                   = "Test Policy"
   status                 = "ACTIVE"
