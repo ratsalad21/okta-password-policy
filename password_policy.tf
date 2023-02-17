@@ -2,6 +2,10 @@ data "okta_group" "everyone" {
   name = "Everyone"
 }
 
+locals {
+  dev = "${var.env == "dev" ? []}"
+}
+
 resource "okta_policy_password" "test-policy" {
   name                   = "Test Policy"
   status                 = "ACTIVE"
@@ -17,7 +21,7 @@ resource "okta_policy_rule_password" "test-default" {
   name               = "Default"
   status             = "ACTIVE"
   network_connection = "ANYWHERE"
-  users_excluded     = var.env == "dev" ? ["00u247ilzed3UnKb75d7"] : null || var.env == "prod" ? ["00u28oxttt78Nu1WA5d7"] : null
+  users_excluded     = var.env == "dev" ? ["00u247ilzed3UnKb75d7"] : null : (var.env == "prod" ? ["00u28oxttt78Nu1WA5d7"] : null)
 }
 
 
