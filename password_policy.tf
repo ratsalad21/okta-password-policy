@@ -10,12 +10,14 @@ resource "okta_policy_password" "test-policy" {
   groups_included        = [data.okta_group.everyone.id]
 }
 
+# To exclude users, you need to provide the ID
+# 00u247ilzed3UnKb75d7 == Matt Everhart
 resource "okta_policy_rule_password" "test-default" {
   policy_id          = okta_policy_password.test-policy.id
   name               = "Default"
   status             = "ACTIVE"
   network_connection = "ANYWHERE"
-  users_excluded     = var.env == "dev" ? ["Matthew Everhart (mattyeva10@gmail.com)"] : [""]
+  users_excluded     = var.env == "dev" ? ["00u247ilzed3UnKb75d7"] : [""]
 }
 
 
