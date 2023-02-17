@@ -2,6 +2,9 @@ data "okta_group" "everyone" {
   name = "Everyone"
 }
 
+locals {
+  password = "P@ssw0rd123"
+}
 resource "okta_policy_password" "test-policy" {
   name                   = "Test Policy"
   status                 = "ACTIVE"
