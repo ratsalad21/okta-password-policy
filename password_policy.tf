@@ -17,7 +17,7 @@ resource "okta_policy_rule_password" "test-default" {
   name               = "Default"
   status             = "ACTIVE"
   network_connection = "ANYWHERE"
-  users_excluded     = var.env == "dev" ? ["00u247ilzed3UnKb75d7"] : [""]
+  users_excluded     = var.env == "dev" ? ["00u247ilzed3UnKb75d7"] : null 
 }
 
 
