@@ -23,6 +23,11 @@ resource "okta_group" "test4" {
 #   description = "This is test group 5"
 # }
 
+resource "okta_group" "test6" {
+  name        = "Test6"
+  description = "This is test group 6"
+}
+
 resource "okta_group_rule" "test1-rule" {
   name              = "Test1 Rule"
   status            = "ACTIVE"
